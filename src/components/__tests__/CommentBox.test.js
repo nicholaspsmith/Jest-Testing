@@ -18,9 +18,9 @@ afterEach(() => {
   wrapper.unmount()
 })
 
-it('shows a textarea and a button', () => {
+it('shows a textarea and 2 buttons', () => {
   expect(wrapper.find('textarea').length).toEqual(1)
-  expect(wrapper.find('button').length).toEqual(1)
+  expect(wrapper.find('button').length).toEqual(2)
 })
 
 describe('textarea', () => {
