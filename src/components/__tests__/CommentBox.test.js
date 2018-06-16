@@ -30,3 +30,21 @@ it('allows a user to enter text in textarea', () => {
   
   expect(wrapper.find('textarea').prop('value')).toEqual('Test comment')
 })
+
+it('empties the text area when form is submitted', () => {
+  const event = {
+    target: {
+      value: 'Test comment'
+    }
+  }
+  wrapper.find('textarea').simulate('change', event)
+  // force re-render (does not detect state change)
+  wrapper.update()
+    
+  expect(wrapper.find('textarea').prop('value')).toEqual('Test comment')
+  
+  wrapper.find('form').simulate('submit')
+  
+  wrapper.update()
+  expect(wrapper.find('textarea').prop('value')).toEqual('')
+})
