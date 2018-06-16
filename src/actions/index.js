@@ -19,5 +19,4 @@ export const fetchComments = () => {
     type: FETCH_COMMENTS,
     payload: response
   }
-
 }
