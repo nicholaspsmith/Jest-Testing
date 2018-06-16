@@ -17,9 +17,9 @@ it('shows a textarea and a button', () => {
   expect(wrapper.find('textarea').length).toEqual(1)
   expect(wrapper.find('button').length).toEqual(1)
 })
+
 describe('textarea', () => {
   let testComment = 'Test comment'
-
   beforeEach(() => {
     const event = {
       target: {
