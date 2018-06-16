@@ -31,10 +31,11 @@ it('can fetch a list of 3 comments & display them', (done) => {
   // click "fetchComments" button
   wrapper.find('.fetch-comments').simulate('click')
   
-  setTimeout(() => {
+  moxios.wait(() => {
     // expect to find an (unspecified length) list of comments
     wrapper.update()
     expect(wrapper.find('li').length).toEqual(3)
     done()
-  }, 100)
+    wrapper.unmount()
+  })
 })
