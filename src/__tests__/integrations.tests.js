@@ -1,11 +1,12 @@
 import React from 'react'
 import { mount } from 'enzyme'
 import moxios from 'moxios'
+import { MemoryRouter } from 'react-router'
 
 import Root from 'Root'
-import App from 'components/App'
+import CommentList from 'components/CommentList'
+import CommentBox from 'components/CommentBox'
 
-let originalTimeout
 
 beforeEach(() => {
   const sampleComments = [
@@ -26,7 +27,16 @@ afterEach(() => {
 
 it('can fetch a list of 3 comments & display them', (done) => {
   // Attempt to render the entire app
-  const wrapper = mount(<Root><App /></Root>)
+  const wrapper = mount(
+    <MemoryRouter>
+      <Root>
+        <div>
+          <CommentBox />
+          <CommentList />
+        </div>
+      </Root>
+    </MemoryRouter>
+  )
 
   // click "fetchComments" button
   wrapper.find('.fetch-comments').simulate('click')
